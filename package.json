@@ -1,0 +1,41 @@
+{
+  "name": "sequelize-compass",
+  "version": "0.0.1",
+  "description": "Realtime-generated admin panel for Sequelize ORM",
+  "main": "index.js",
+  "dependencies": {
+    "async": "^0.2.10",
+    "grunt-contrib-coffee": "^0.12.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt": "^0.4.5",
+    "jade": "^1.6.0",
+    "grunt-contrib-watch": "^0.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/finnishprince/sequelize-compass.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "sequelize",
+    "orm",
+    "admin",
+    "django",
+    "admin",
+    "panel",
+    "admin",
+    "interface",
+    "dynamic"
+  ],
+  "author": "Ilya Rusanen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/finnishprince/sequelize-compass/issues"
+  },
+  "homepage": "https://github.com/finnishprince/sequelize-compass"
+}
