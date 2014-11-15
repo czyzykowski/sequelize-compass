@@ -21,7 +21,6 @@ block content
             h4 #{attribute.charAt(0).toUpperCase() + attribute.slice(1)}
 
             //p #{JSON.stringify(model.rawAttributes[attribute])}
-            //p #{model.rawAttributes[attribute].type._typeName}
 
             // determine field type
             if model.rawAttributes[attribute].type._typeName == "INTEGER"
@@ -63,8 +62,8 @@ block content
               else
                 input.form-control(value='{}', type='text', required='required', placeholder='#{attribute.charAt(0).toUpperCase() + attribute.slice(1)}', name='#{attribute}')
 
-            // BOOLEAN
-            if model.rawAttributes[attribute].type == "BOOLEAN"
+            // Seems to be BOOLEAN...
+            if model.rawAttributes[attribute].type == "TINYINT(1)"
               select.form-control(name="#{attribute}")
                 if action == "edit"
                   - if ( String( modelInstance[attribute] ) === "true" ) {
@@ -78,7 +77,7 @@ block content
                   option(value="true") true
                   option(value="false") false
 
-            // it seems to be ENUM...
+            // Ot seems to be ENUM...
             if model.rawAttributes[attribute].values
               if model.rawAttributes[attribute].values.length > 0
                 select.form-control(name="#{attribute}")
@@ -125,7 +124,7 @@ block content
                       if action == "edit"
 
                         // compare array of associated objects in modelInstance field WITH current element in associationInstances array
-                        - if ( containsObject( modelInstance[decapitalizeFirstLetter(association.as)], associationInstance) == true ) {
+                        - if ( containsObject( modelInstance[association.as], associationInstance) == true ) {
 
                         // render SELECTED element of associationInstances array
                         option(value="#{associationInstance.dataValues.id}", selected=)
@@ -161,7 +160,7 @@ block content
                     each listModel in associationInstances[association.as]
 
                       if action == "edit"
-                        - if ( listModel.dataValues.id &&  modelInstance[association.as.charAt(0).toLowerCase() + association.as.slice(1)] &&  String(listModel.dataValues.id) === String(modelInstance[association.as.charAt(0).toLowerCase() + association.as.slice(1)].id) ) {
+                        - if ( listModel.dataValues.id &&  modelInstance[association.as] &&  String(listModel.dataValues.id) === String(modelInstance[association.as].id) ) {
                         option(value="#{listModel.dataValues.id}", selected=)
                           each field in association.attributes
                             | #{listModel.dataValues[field]} :&nbsp;

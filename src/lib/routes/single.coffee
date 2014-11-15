@@ -97,7 +97,12 @@ exports.postSingle = (req, res)->
 
     # set new values, got from frontend
     modelConfigObject.attributes.forEach (attribute)->
-      modelInstance[attribute] = req.body[attribute]
+      
+      # fix to set BOOL as true/false but not as "true"/"false"
+      if globals.modelsObject[modelConfigObject.modelName].rawAttributes[attribute].type == "TINYINT(1)"
+        modelInstance[attribute] = ( if req.body[attribute] is "true" then true else false )
+      else
+        modelInstance[attribute] = req.body[attribute]
 
     # save new values
     modelInstance.save()
