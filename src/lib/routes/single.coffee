@@ -40,6 +40,7 @@ exports.getSingle = (req, res)->
 
   # retrieving main single model by requested ID
   # with constructed request object
+  console.log request
   globals.modelsObject[modelName].find(request).success (modelInstance)->
 
     globals.helpers.getAllModelNames (err, modelsNames)->
@@ -59,7 +60,8 @@ exports.getSingle = (req, res)->
 
       # get all model Instances for every association type to show in association fields
       require("async").map modelConfigObject.associations, getAllModelInstances.get.bind(getAllModelInstances), (err, result) ->
-
+        console.log associationInstances
+        console.log JSON.parse(JSON.stringify(modelInstance))
         # render template
         data = globals.jade.renderFile "#{globals.viewsDir}/single.jade",
           prefix               : globals.prefix

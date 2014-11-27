@@ -18,7 +18,7 @@ exports.getAllModelNames = (callback)->
   globals.configObject.models.forEach (model)->
 
     # push every model name to array
-    modelNamesArray.push model.modelName
+    modelNamesArray.push model.modelName if model and model.modelName
 
   # async return model names Array
   callback null, modelNamesArray
@@ -41,13 +41,7 @@ exports.getModelConfigObject = (name)->
   _model = undefined
 
   # sync iterate over every model config
-  globals.configObject.models.forEach (model)->
-
-    # if model name is found
-    if model.modelName is name
-
-      # set it to outer object
-      _model = model
+  globals.configObject.models.forEach (model)-> _model = model if model.modelName is name
 
   # return found object
   _model

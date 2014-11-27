@@ -15,7 +15,7 @@ exports.getList = (req, res)->
 
   # handling attributes
   request.attributes = modelConfigObject.attributes if modelConfigObject.attributes
-
+  console.log modelName
   # retrieving all models
   globals.modelsObject[modelName].findAll(request).success (modelsList)->
 

@@ -39,7 +39,7 @@ block content
                 input.form-control(value='', type='text', required='required', placeholder='#{attribute.charAt(0).toUpperCase() + attribute.slice(1)}', name='#{attribute}')
 
             if model.rawAttributes[attribute].type == "TEXT"
-              if actipn == "edit"
+              if action == "edit"
                 textarea.form-control(required='required', rows="10", placeholder='#{attribute.charAt(0).toUpperCase() + attribute.slice(1)}', name='#{attribute}') #{modelInstance[attribute]}
               else
                 textarea.form-control(required='required', rows="10", placeholder='#{attribute.charAt(0).toUpperCase() + attribute.slice(1)}', name='#{attribute}')
