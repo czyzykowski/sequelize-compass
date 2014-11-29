@@ -37,7 +37,7 @@ In server.js/app.js after Express app object initialization, call sequlize-compa
 ```
 ... // Express app init
 
-var sequelizeCompass = require("sequelize_compass");
+var sequelizeCompass = require("sequelize-compass");
 
 sequelizeCompass(adminURL, appObject, compassConfig, modelsArray);
 ```
