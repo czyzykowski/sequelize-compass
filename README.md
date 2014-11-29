@@ -42,7 +42,7 @@ var sequelizeCompass = require("sequelize-compass");
 sequelizeCompass(adminURL, appObject, compassConfig, modelsArray);
 ```
 
-Sequlize-compass will add all requires URLs to you Express app and can be reached at http://youapp/:adminURL
+Sequlize-compass will add all required URLs to you Express app and can be reached at http://youapp/:adminURL
 
 #### Options
 
@@ -94,7 +94,7 @@ var compassConfig =  {
 
 Definately, yes. At first look it may seem easier. However, there are at least two reasons, why you must define what to serve manually:
 
-1. Sequelize define hasMany and belongsTo associations as regular attributes, so they will be shown in attributes list. There is no 100% guaranted way to determine if a particular attribute is a user-defined field, or it's Sequelize-generated association flag. In future, I'll try to avoid this, comparing names of fields with names of hasOne/belongsTo associations to extract Sequelize-generated association fields (first-look thoughts), but now it's better to define attributes evidently.
+1. Sequelize defines hasMany and belongsTo associations as regular attributes, so they will be shown in attributes list. There is no 100% guaranted way to determine if a particular attribute is a user-defined field, or it's Sequelize-generated association flag. In future, I'll try to avoid this, comparing names of fields with names of hasOne/belongsTo associations to extract Sequelize-generated association fields (first-look thoughts), but now it's better to define attributes evidently.
 2. Your models may contain long/tech-generated data which usually is not need to be modified or shown. For example, in User model you may have passwordHash(1024) field or salt(512). I do suppose it's better to have ability not to touch such fields at all.
 
 ### Dev notes
